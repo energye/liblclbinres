@@ -1,3 +1,3 @@
-module github.com/energye/liblclbinres/v2
+module github.com/energye/liblclbinres
 
 go 1.18
