@@ -15,7 +15,7 @@ import (
 	"bytes"
 	"compress/zlib"
 	"fmt"
-	"github.com/energye/liblclbinres/genbinres/home"
+	"github.com/energye/liblclbinres/v2/genbinres/home"
 	"hash/crc32"
 	"io/fs"
 	"io/ioutil"
