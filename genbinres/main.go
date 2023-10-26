@@ -84,23 +84,27 @@ func main() {
 			panic(err)
 		}
 
-		if strings.Contains(name, "windows32.zip") {
+		if strings.Contains(name, "liblcl.windows32.zip") {
 			genresByte(data, "windows", filepath.Join(libLCLBinResDir, "liblcl_windows_386.go"))
-		} else if strings.Contains(name, "windows64.zip") {
+		} else if strings.Contains(name, "liblcl.windows64.zip") {
 			genresByte(data, "windows", filepath.Join(libLCLBinResDir, "liblcl_windows_amd64.go"))
-		} else if strings.Contains(name, "windowsarm64.zip") {
+		} else if strings.Contains(name, "liblcl.windowsarm64.zip") {
 			genresByte(data, "windows", filepath.Join(libLCLBinResDir, "liblcl_windows_arm64.go"))
-		} else if strings.Contains(name, "linux64.zip") {
+		} else if strings.Contains(name, "liblcl-109.windows32.zip") {
+			genresByte(data, "windows && win7", filepath.Join(libLCLBinResDir, "liblcl_windows7_386.go"))
+		} else if strings.Contains(name, "liblcl-109.windows64.zip") {
+			genresByte(data, "windows && win7", filepath.Join(libLCLBinResDir, "liblcl_windows7_amd64.go"))
+		} else if strings.Contains(name, "liblcl.linux64.zip") {
 			genresByte(data, "linux && gtk3", filepath.Join(libLCLBinResDir, "liblcl_gtk3_linux_amd64.go"))
-		} else if strings.Contains(name, "linux64gtk2.zip") {
+		} else if strings.Contains(name, "liblcl.linux64gtk2.zip") {
 			genresByte(data, "linux && gtk2", filepath.Join(libLCLBinResDir, "liblcl_gtk2_linux_amd64.go"))
-		} else if strings.Contains(name, "linuxarm64.zip") {
+		} else if strings.Contains(name, "liblcl.linuxarm64.zip") {
 			genresByte(data, "linux && gtk3", filepath.Join(libLCLBinResDir, "liblcl_gtk3_linux_arm64.go"))
-		} else if strings.Contains(name, "linuxarm64gtk2.zip") {
+		} else if strings.Contains(name, "liblcl.linuxarm64gtk2.zip") {
 			genresByte(data, "linux && gtk2", filepath.Join(libLCLBinResDir, "liblcl_gtk2_linux_arm64.go"))
-		} else if strings.Contains(name, "macosarm64.zip") {
+		} else if strings.Contains(name, "liblcl.macosarm64.zip") {
 			genresByte(data, "darwin", filepath.Join(libLCLBinResDir, "liblcl_darwin_arm64.go"))
-		} else if strings.Contains(name, "macosx64.zip") {
+		} else if strings.Contains(name, "liblcl.macosx64.zip") {
 			genresByte(data, "darwin", filepath.Join(libLCLBinResDir, "liblcl_darwin_amd64.go"))
 		}
 	}
