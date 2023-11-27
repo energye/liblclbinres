@@ -43,6 +43,9 @@ func main() {
 	}
 	wd, _ := os.Getwd()
 	libLCLBinResDir := filepath.Join(wd, "../")
+	if strings.LastIndex(libLCLBinResDir, "liblclbinres") == -1 {
+		libLCLBinResDir = filepath.Join(libLCLBinResDir, "liblclbinres")
+	}
 	println("liblcl version:", liblclVersion)
 	println("out liblcl dir:", libLCLBinResDir)
 	// 用户目录
@@ -61,7 +64,8 @@ func main() {
 		zipPath := filepath.Join(liblclPath, info.Name())
 		zz, err := zip.OpenReader(zipPath)
 		if err != nil {
-			panic(err)
+			println("open-zip-error:", err.Error())
+			continue
 		}
 		defer zz.Close()
 		var (
@@ -76,12 +80,14 @@ func main() {
 			file, err = zz.Open("liblcl.dylib")
 		}
 		if err != nil {
-			panic(err)
+			println("open-dll-error:", err.Error())
+			continue
 		}
 		defer file.Close()
 		data, err := ioutil.ReadAll(file)
 		if err != nil {
-			panic(err)
+			println("read-dll-error:", err.Error())
+			continue
 		}
 		if strings.Contains(name, "liblcl.windows32.zip") {
 			// windows 32
